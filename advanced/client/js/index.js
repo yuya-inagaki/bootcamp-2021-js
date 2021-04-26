@@ -1,6 +1,9 @@
 import Todo from "./components/todo.js"
+import TodoForm from "./components/todo-form.js"
 
 const main = () => {
+  new TodoForm().mount()
+
   const parent = document.getElementById("todos")
   const api = "http://localhost:3000/todo"
 
