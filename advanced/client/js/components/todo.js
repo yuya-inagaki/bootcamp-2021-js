@@ -11,6 +11,8 @@ class Todo {
   mount() {
     const api = "http://localhost:3000/todo"
     const checkbox = this.element.querySelector('.todo-toggle')
+    const deleteBtn = this.element.querySelector('.todo-remove-button')
+
     checkbox.addEventListener('click', () => {
       fetch(api + '/' + this.id, {
         method: 'PATCH',
@@ -26,8 +28,21 @@ class Todo {
       .then(data => {
         console.log('Update:', data)
         this.done = !this.done
+      }).catch((error) => {
+        console.error(error)
       })
+    })
 
+    deleteBtn.addEventListener('click', () => {
+      fetch(api + '/' + this.id, {
+        method: 'DELETE'
+      })
+      .then(data => {
+        console.log('Delete:', data)
+        this.element.remove()
+      }).catch((error) => {
+        console.error(error)
+      })
     })
   }
 
