@@ -15,7 +15,7 @@ const todoList = [
   {
     id: 3,
     name: 'Test3',
-    done: True
+    done: true
   }
 ];
 
